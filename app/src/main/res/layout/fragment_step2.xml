@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/clean_service"
+            android:textColor="@color/colorAccent" />
+
+        <ListView android:id="@+id/lv_servicios"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:choiceMode="singleChoice"
+            android:layout_weight="1"></ListView>
+
+    </LinearLayout>
+
+    <RelativeLayout android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_warning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/formulario_reservas"
+            android:paddingTop="@dimen/activity_horizontal_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="0dp"
+            android:textColor="@color/colorAccent"
+            android:textSize="12sp"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btn_prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reservas2_anterior"
+            android:gravity="center"
+            android:drawableLeft="@drawable/ic_back"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/tv_warning"
+            android:textColor="@color/colorPrimary"
+            android:padding="@dimen/activity_vertical_margin"
+            android:textSize="24sp"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btn_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reservas2_siguiente"
+            android:gravity="center"
+            android:drawableRight="@drawable/ic_next"
+            android:layout_below="@+id/tv_warning"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorPrimary"
+            android:padding="@dimen/activity_vertical_margin"
+            android:textSize="24sp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+
