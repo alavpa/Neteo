@@ -74,7 +74,8 @@
     <string name="reservas2_cancelar">Cancelar</string>
     <string name="reservas2_comments">Comentarios</string>
     <string name="reservas2_confirm">Nos pondremos en contacto con usted lo antes posible para confirmar su reserva. Muchas gracias.</string>
-    <string name="reservas2_web">http://www.limpiezasneteo.com</string>
+    <string name="conocenos_web_url">http://www.limpiezasneteo.com</string>
+    <string name="conocenos_web">www.limpiezasneteo.com</string>
 
     <!--ERRORS-->
     <string name="exception_contact_data">Por favor, introduzca su correo electrónico para poder contactar con usted. Paso 1.</string>

@@ -3,9 +3,11 @@ package com.limpiezas.neteo.ui.reservas.step3;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
@@ -99,7 +101,23 @@ public class Step3Fragment extends Fragment implements Step3View{
         btn_reservar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.reservar();
+
+                new AlertDialog.Builder(getContext())
+                        .setTitle(R.string.app_name)
+                        .setMessage(R.string.reservas2_confirm)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                presenter.reservar();
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).create().show();
             }
         });
 

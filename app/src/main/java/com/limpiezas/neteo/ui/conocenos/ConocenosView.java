@@ -11,4 +11,6 @@ public interface ConocenosView {
     void openFacebook(String url);
 
     void openTwitter(String url);
+
+    void openWeb(String url);
 }

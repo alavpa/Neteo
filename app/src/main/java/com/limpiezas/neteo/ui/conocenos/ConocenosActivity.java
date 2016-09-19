@@ -31,6 +31,8 @@ public class ConocenosActivity extends BaseToolbarActivity implements ConocenosV
     TextView tv_facebook;
     @BindView(R.id.tv_twitter)
     TextView tv_twitter;
+    @BindView(R.id.tv_web)
+    TextView tv_web;
 
     ConocenosPresenter presenter;
 
@@ -75,6 +77,13 @@ public class ConocenosActivity extends BaseToolbarActivity implements ConocenosV
             }
         });
 
+        tv_web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.onClickWeb();
+            }
+        });
+
     }
 
     @Override
@@ -98,6 +107,12 @@ public class ConocenosActivity extends BaseToolbarActivity implements ConocenosV
 
     @Override
     public void openTwitter(String url) {
+        Intent intent = getUrlIntent(url);
+        startActivity(intent);
+    }
+
+    @Override
+    public void openWeb(String url) {
         Intent intent = getUrlIntent(url);
         startActivity(intent);
     }

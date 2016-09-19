@@ -37,4 +37,8 @@ public class ConocenosPresenter {
     public void onClickTwitter() {
         view.openTwitter(App.get().getString(R.string.conocenos_twitter_url));
     }
+
+    public void onClickWeb() {
+        view.openWeb(App.get().getString(R.string.conocenos_web_url));
+    }
 }
