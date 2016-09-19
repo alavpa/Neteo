@@ -1,13 +1,8 @@
 package com.limpiezas.neteo.ui.reservas.step1;
 
-import android.text.InputType;
-import android.text.TextUtils;
-
-import com.limpiezas.neteo.R;
 import com.limpiezas.neteo.data.model.Form;
 import com.limpiezas.neteo.interactors.SaveForm;
 import com.limpiezas.neteo.interactors.ValidateStep1;
-import com.limpiezas.neteo.ui.App;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -45,14 +40,8 @@ public class Step1Presenter {
             view.setAddressLine1(form.getAddress1());
             view.setAddressLine2(form.getAddress2());
             view.setCP(form.getCP());
-
-            if(!TextUtils.isEmpty(form.getEmail().trim())) {
-                view.setContact(0,form.getEmail());
-            }else if(!TextUtils.isEmpty(form.getPhone().trim())){
-                view.setContact(1, form.getPhone());
-            }else{
-                view.setContact(0,form.getEmail());
-            }
+            view.setEmail(form.getEmail());
+            view.setPhone(form.getPhone());
         }
     }
     
@@ -62,6 +51,8 @@ public class Step1Presenter {
             form.setAddress1(view.getAddress1());
             form.setAddress2(view.getAddress2());
             form.setCP(view.getCP());
+            form.setEmail(view.getEmail());
+            form.setPhone(view.getPhone());
         }
     }
 
@@ -107,28 +98,5 @@ public class Step1Presenter {
     public void onNext() {
         setData();
         saveData();
-    }
-
-    public void onContactChange(int i) {
-        if(view!=null) {
-            String contact = App.get().getResources().getStringArray(R.array.contact_type)[i];
-            if (i == 0) {
-                view.setContactHintInputTypeValue(contact, InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS,form.getEmail());
-            }else{
-                view.setContactHintInputTypeValue(contact, InputType.TYPE_CLASS_PHONE,form.getPhone());
-            }
-
-        }
-    }
-
-    public void onContactValueChanged(String text) {
-        if(view!=null) {
-            int contactSelected = view.getContactSelected();
-            if(contactSelected==0){
-                form.setEmail(text);
-            }else{
-                form.setPhone(text);
-            }
-        }
     }
 }

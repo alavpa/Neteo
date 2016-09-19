@@ -6,14 +6,9 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.limpiezas.neteo.R;
 
@@ -37,11 +32,11 @@ public class Step1Fragment extends Fragment implements Step1View{
     @BindView(R.id.et_cp)
     AppCompatEditText et_cp;
 
-    @BindView(R.id.et_contact)
-    AppCompatEditText et_contact;
+    @BindView(R.id.et_email)
+    AppCompatEditText et_email;
 
-    @BindView(R.id.sp_contact)
-    Spinner sp_contact;
+    @BindView(R.id.et_phone)
+    AppCompatEditText et_phone;
 
     @BindView(R.id.btn_next)
     AppCompatTextView btn_next;
@@ -73,42 +68,6 @@ public class Step1Fragment extends Fragment implements Step1View{
         ButterKnife.bind(this,view);
 
         presenter = new Step1Presenter(this,parent);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item,
-                android.R.id.text1,
-                getActivity().getResources().getStringArray(R.array.contact_type));
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp_contact.setAdapter(adapter);
-
-        sp_contact.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                presenter.onContactChange(i);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        et_contact.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                presenter.onContactValueChanged(charSequence.toString());
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        });
 
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,9 +101,13 @@ public class Step1Fragment extends Fragment implements Step1View{
     }
 
     @Override
-    public void setContact(int pos, String contact) {
-        sp_contact.setSelection(pos);
-        et_contact.setText(contact);
+    public void setEmail(String email) {
+        et_email.setText(email);
+    }
+
+    @Override
+    public void setPhone(String phone) {
+        et_phone.setText(phone);
     }
 
     @Override
@@ -168,19 +131,13 @@ public class Step1Fragment extends Fragment implements Step1View{
     }
 
     @Override
-    public String getContact() {
-        return et_contact.getText().toString();
+    public String getEmail() {
+        return et_email.getText().toString();
     }
 
     @Override
-    public void setContactHintInputTypeValue(String hint,int inputType, String value) {
-        et_contact.setHint(hint + "*");
-        et_contact.setInputType(inputType);
-        et_contact.setText(value);
+    public String getPhone() {
+        return et_phone.getText().toString();
     }
 
-    @Override
-    public int getContactSelected() {
-        return sp_contact.getSelectedItemPosition();
-    }
 }

@@ -4,11 +4,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 
 import com.limpiezas.neteo.R;
@@ -24,6 +25,9 @@ public class Step2Fragment extends Fragment implements Step2View{
     Step2Presenter presenter;
     Step2ParentView parent;
 
+    @BindView(R.id.chk_clean_products)
+    AppCompatCheckBox chk_clean_products;
+
     @BindView(R.id.lv_servicios)
     ListView lv_servicios;
 
@@ -32,6 +36,8 @@ public class Step2Fragment extends Fragment implements Step2View{
 
     @BindView(R.id.btn_prev)
     AppCompatTextView btn_prev;
+
+    ServicesAdapter adapter;
 
     @Override
     public void onAttach(Context context) {
@@ -56,15 +62,15 @@ public class Step2Fragment extends Fragment implements Step2View{
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this,view);
 
-        lv_servicios.setAdapter(new ArrayAdapter<>(getActivity(),
-                R.layout.item_selectable,
-                //android.R.layout.simple_list_item_single_choice,
-                android.R.id.text1,
-                getResources().getStringArray(R.array.clean_service_type)));
-
-
         presenter = new Step2Presenter(this,parent);
         presenter.init();
+
+        chk_clean_products.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                presenter.onCheckedChanged(b);
+            }
+        });
 
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +88,7 @@ public class Step2Fragment extends Fragment implements Step2View{
 
     }
 
+
     @Override
     public int getServiceSelected() {
         return lv_servicios.getCheckedItemPosition();
@@ -89,7 +96,48 @@ public class Step2Fragment extends Fragment implements Step2View{
 
     @Override
     public void selectService(int service) {
-        lv_servicios.setSelection(service);
-        lv_servicios.setItemChecked(service,true);
+
+        if(service<getResources().getStringArray(R.array.servicios).length) {
+            lv_servicios.setSelection(service);
+            lv_servicios.setItemChecked(service, true);
+        }
+    }
+
+    @Override
+    public boolean getNotCleaningProducts() {
+        return chk_clean_products.isChecked();
+    }
+
+    @Override
+    public void setNotCleaningProducts(boolean notneed) {
+        chk_clean_products.setChecked(notneed);
+    }
+
+    @Override
+    public void setList(boolean notneed) {
+
+        if(adapter==null) {
+            if (notneed) {
+                adapter = new ServicesAdapter(getActivity(),
+                        getResources().getStringArray(R.array.servicios),
+                        getResources().getStringArray(R.array.precios_con_producto));
+            } else {
+                adapter = new ServicesAdapter(getActivity(),
+                        getResources().getStringArray(R.array.servicios),
+                        getResources().getStringArray(R.array.precios_sin_producto));
+            }
+            lv_servicios.setAdapter(adapter);
+        }else{
+            if(notneed){
+                adapter.setPrices(getResources().getStringArray(R.array.precios_con_producto));
+            }else{
+                adapter.setPrices(getResources().getStringArray(R.array.precios_sin_producto));
+            }
+            adapter.notifyDataSetChanged();
+        }
+
+
+
+
     }
 }

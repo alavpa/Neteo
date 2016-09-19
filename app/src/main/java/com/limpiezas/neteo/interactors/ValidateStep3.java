@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.limpiezas.neteo.data.model.Form;
 import com.limpiezas.neteo.interactors.errors.NoPaymentSelectedException;
-import com.limpiezas.neteo.interactors.errors.NoTypeSelectedException;
 import com.limpiezas.neteo.interactors.errors.NoValidDateException;
 
 import java.util.Calendar;
@@ -30,10 +29,6 @@ public class ValidateStep3 {
                     public Observable<Void> call() {
 
                         Log.d("Save","validate3");
-                        if(form.getType()<0){
-                            return Observable.error(new NoTypeSelectedException());
-                        }
-
                         Calendar calendar = Calendar.getInstance();
                         calendar.add(Calendar.HOUR,24);
 

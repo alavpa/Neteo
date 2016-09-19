@@ -34,13 +34,16 @@ public class Step2Presenter {
 
     private void fillData(Form form) {
         if(view!=null){
+            view.setList(form.isNot_products());
             view.selectService(form.getService());
+            view.setNotCleaningProducts(form.isNot_products());
         }
     }
 
     private void setData(){
         if(view!=null){
             form.setService(view.getServiceSelected());
+            form.setNot_products(view.getNotCleaningProducts());
         }
     }
 
@@ -96,5 +99,11 @@ public class Step2Presenter {
     public void onPrev(){
         setData();
         saveData(false);
+    }
+
+    public void onCheckedChanged(boolean notneeded){
+        if(view!=null){
+            view.setList(notneeded);
+        }
     }
 }

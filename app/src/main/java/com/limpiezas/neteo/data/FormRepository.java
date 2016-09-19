@@ -25,10 +25,10 @@ public class FormRepository {
         form.setEmail(datasource.getEmail());
         form.setPhone(datasource.getPhone());
         form.setService(datasource.getService());
-        form.setType(datasource.getType());
         form.setNot_products(datasource.notNeedProducts());
         form.setDate(datasource.getDate());
         form.setPayment(datasource.getPayment());
+        form.setComments(datasource.getComments());
         return form;
     }
 
@@ -40,10 +40,10 @@ public class FormRepository {
                 form.getEmail(),
                 form.getPhone(),
                 form.getService(),
-                form.getType(),
                 form.isNot_products(),
                 form.getDate(),
-                form.getPayment());
+                form.getPayment(),
+                form.getComments());
     }
 
     public void saveForm(String name,
@@ -53,10 +53,10 @@ public class FormRepository {
                         String email,
                         String phone,
                         int service,
-                        int type,
                         boolean notNeedProducts,
                         Date date,
-                        int payment){
+                        int payment,
+                         String comments){
         datasource.setName(name);
         datasource.setAddress1(address1);
         datasource.setAddress2(address2);
@@ -64,9 +64,9 @@ public class FormRepository {
         datasource.setEmail(email);
         datasource.setPhone(phone);
         datasource.setService(service);
-        datasource.setType(type);
         datasource.setNotNeedProducts(notNeedProducts);
         datasource.setDate(date);
         datasource.setPayment(payment);
+        datasource.setComments(comments);
     }
 }

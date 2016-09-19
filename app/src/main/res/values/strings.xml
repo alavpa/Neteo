@@ -5,7 +5,7 @@
     <string name="address_line2">Dirección linea 2</string>
     <string name="cp">Código postal*</string>
     <string name="email">Correo electrónico*</string>
-    <string name="phone">Teléfono de contacto*</string>
+    <string name="phone">Teléfono de contacto</string>
     <string name="clean_service">¿Qué necesitas limpiar?</string>
     <string name="clean_type">Tipo de limpieza</string>
     <string name="clean_products">No necesito productos de limpieza</string>
@@ -72,11 +72,12 @@
     <string name="reservas2_reservar">Reservar</string>
     <string name="reservas2_enviar">Enviar</string>
     <string name="reservas2_cancelar">Cancelar</string>
+    <string name="reservas2_comments">Comentarios</string>
     <string name="reservas2_confirm">Nos pondremos en contacto con usted lo antes posible para confirmar su reserva. Muchas gracias.</string>
     <string name="reservas2_web">http://www.limpiezasneteo.com</string>
 
     <!--ERRORS-->
-    <string name="exception_contact_data">Por favor, introduzca su correo electrónico o número de teléfono para poder contactar con usted. Paso 1.</string>
+    <string name="exception_contact_data">Por favor, introduzca su correo electrónico para poder contactar con usted. Paso 1.</string>
     <string name="exception_cp">Por favor, introduzca su código postal. Paso 1.</string>
     <string name="exception_no_service">Por favor, seleccione que desea limpiar. Paso 2.</string>
     <string name="exception_no_type">Por favor, seleccione el tipo de servicio. Paso 3.</string>
@@ -95,34 +96,36 @@
         <item>Conócenos</item>
     </array>
 
-    <array name="contact_type">
-        <item>Correo Electrónico</item>
-        <item>Teléfono</item>
-    </array>
-
     <array name="payment_type">
         <item>Efectivo</item>
         <item>Tarjeta de crédito</item>
     </array>
 
-    <array name="clean_service_type">
-        <item>Comunidad de vecinos</item>
-        <item>Vivienda</item>
-        <item>Empresa</item>
-        <item>Garaje</item>
-        <item>Colegio</item>
-        <item>Residencia</item>
-        <item>Oficina</item>
+    <array name="servicios">
+        <item>Limpieza normal</item>
+        <item>Resto de obra</item>
         <item>Limpieza de cristales</item>
         <item>Limpieza ecológica</item>
-        <item>Control de plagas</item>
         <item>Limpieza de alfombras y moquetas</item>
         <item>Vitrificado y abrillantado de pavimentos</item>
     </array>
 
-    <array name="clean_type">
-        <item>Limpieza normal</item>
-        <item>Resto de obra</item>
+    <array name="precios_sin_producto">
+        <item>11 €/Hora IVA no incluido</item>
+        <item>13 €/Hora IVA no incluido</item>
+        <item>14 €/Hora IVA no incluido</item>
+        <item>13 €/Hora IVA no incluido</item>
+        <item>15 €/m2 IVA no incluido</item>
+        <item>2 €/m2 IVA no incluido</item>
+    </array>
+
+    <array name="precios_con_producto">
+        <item>10 €/Hora IVA no incluido</item>
+        <item>12 €/Hora IVA no incluido</item>
+        <item>14 €/Hora IVA no incluido</item>
+        <item>13 €/Hora IVA no incluido</item>
+        <item>15 €/m2 IVA no incluido</item>
+        <item>2 €/m2 IVA no incluido</item>
     </array>
 
 </resources>
