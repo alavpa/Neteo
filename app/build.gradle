@@ -9,8 +9,8 @@ android {
         applicationId "com.limpiezas.neteo"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 2
-        versionName "1.0.2"
+        versionCode 3
+        versionName "1.0.3"
         Properties properties = new Properties()
         properties.load(project.rootProject.file('local.properties').newDataInputStream())
         buildConfigField "String", "EMAIL_USERNAME", properties.getProperty('EMAIL_USERNAME')

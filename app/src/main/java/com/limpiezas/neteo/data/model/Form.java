@@ -13,7 +13,6 @@ public class Form {
     private String email = "";
     private String phone = "";
     private int service = -1;
-    private int type = -1;
     private boolean not_products = false;
     private Date date = new Date();
     private int payment = -1;
@@ -73,14 +72,6 @@ public class Form {
 
     public void setService(int service) {
         this.service = service;
-    }
-
-    public int getType() {
-        return type;
-    }
-
-    public void setType(int type) {
-        this.type = type;
     }
 
     public boolean isNot_products() {

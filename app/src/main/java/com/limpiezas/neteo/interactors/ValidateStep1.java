@@ -32,7 +32,7 @@ public class ValidateStep1 {
                             return Observable.error(new NoCPException());
                         }
 
-                        if(!isValidEmail(form.getEmail()) && TextUtils.isEmpty(form.getPhone())){
+                        if(!isValidEmail(form.getEmail())){
                             return Observable.error(new NoContactDataException());
                         }
                         return Observable.empty();

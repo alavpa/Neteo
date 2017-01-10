@@ -14,10 +14,10 @@ public interface ApiDatasource {
     String getEmail();
     String getPhone();
     int getService();
-    int getType();
     Boolean notNeedProducts();
     Date getDate();
     int getPayment();
+    String getComments();
 
     void setName(String name);
     void setAddress1(String address1);
@@ -26,10 +26,10 @@ public interface ApiDatasource {
     void setEmail(String email);
     void setPhone(String phone);
     void setService(int service);
-    void setType(int type);
     void setNotNeedProducts(boolean set);
     void setDate(Date date);
     void setPayment(int payment);
+    void setComments(String comments);
 
 
 

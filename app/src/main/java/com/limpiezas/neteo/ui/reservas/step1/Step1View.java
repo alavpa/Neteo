@@ -13,7 +13,8 @@ public interface Step1View {
 
     void setCP(String cp);
 
-    void setContact(int pos, String contact);
+    void setEmail(String email);
+    void setPhone(String phone);
 
     String getName();
 
@@ -23,9 +24,7 @@ public interface Step1View {
 
     String getCP();
 
-    void setContactHintInputTypeValue(String hint, int inputType, String value);
-    int getContactSelected();
-
-    String getContact();
+    String getEmail();
+    String getPhone();
 
 }

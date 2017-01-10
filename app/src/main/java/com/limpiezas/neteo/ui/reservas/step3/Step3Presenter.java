@@ -68,8 +68,7 @@ public class Step3Presenter {
 
     private void fillData(Form form) {
         if(view!=null){
-            view.setCleanType(form.getType());
-            view.setNotCleaningProducts(form.isNot_products());
+            view.setComments(form.getComments());
             calendar.setTime(form.getDate());
             view.initDateDialogs(calendar.getTime());
             showDate();
@@ -80,10 +79,9 @@ public class Step3Presenter {
 
     private void setData(){
         if(view!=null){
-            form.setType(view.getCleanType());
-            form.setNot_products(view.getNotCleaningProducts());
             form.setDate(calendar.getTime());
             form.setPayment(view.getPayment());
+            form.setComments(view.getComments());
         }
     }
 

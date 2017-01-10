@@ -3,10 +3,11 @@ package com.limpiezas.neteo.ui.reservas.step3;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.AppCompatCheckBox;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
@@ -30,14 +31,11 @@ import butterknife.ButterKnife;
  */
 public class Step3Fragment extends Fragment implements Step3View{
 
-    @BindView(R.id.lv_type)
-    ListView lv_type;
-
-    @BindView(R.id.chk_clean_products)
-    AppCompatCheckBox chk_clean_products;
-
     @BindView(R.id.lv_payment)
     ListView lv_payment;
+
+    @BindView(R.id.et_comments)
+    AppCompatEditText et_comments;
 
     @BindView(R.id.et_date)
     AppCompatEditText et_date;
@@ -95,12 +93,6 @@ public class Step3Fragment extends Fragment implements Step3View{
             }
         });
 
-
-        lv_type.setAdapter(new ArrayAdapter<>(getActivity(),
-                R.layout.item_selectable,
-                android.R.id.text1,
-                getResources().getStringArray(R.array.clean_type)));
-
         lv_payment.setAdapter(new ArrayAdapter<>(getActivity(),
                 R.layout.item_selectable,
                 android.R.id.text1,
@@ -109,7 +101,23 @@ public class Step3Fragment extends Fragment implements Step3View{
         btn_reservar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.reservar();
+
+                new AlertDialog.Builder(getContext())
+                        .setTitle(R.string.app_name)
+                        .setMessage(R.string.reservas2_confirm)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                presenter.reservar();
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }).create().show();
             }
         });
 
@@ -124,28 +132,6 @@ public class Step3Fragment extends Fragment implements Step3View{
         presenter.init();
 
     }
-
-    @Override
-    public int getCleanType() {
-        return lv_type.getCheckedItemPosition();
-    }
-
-    @Override
-    public void setCleanType(int type) {
-        lv_type.setSelection(type);
-        lv_type.setItemChecked(type,true);
-    }
-
-    @Override
-    public boolean getNotCleaningProducts() {
-        return chk_clean_products.isChecked();
-    }
-
-    @Override
-    public void setNotCleaningProducts(boolean notneed) {
-        chk_clean_products.setChecked(notneed);
-    }
-
 
     @Override
     public void setTime(String time) {
@@ -185,6 +171,16 @@ public class Step3Fragment extends Fragment implements Step3View{
                 presenter.setTime(hour,minute);
             }
         }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
+    }
+
+    @Override
+    public String getComments() {
+        return et_comments.getText().toString();
+    }
+
+    @Override
+    public void setComments(String comments) {
+        et_comments.setText(comments);
     }
 
 }

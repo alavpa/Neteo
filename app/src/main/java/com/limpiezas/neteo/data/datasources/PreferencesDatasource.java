@@ -84,11 +84,6 @@ public class PreferencesDatasource implements ApiDatasource{
     }
 
     @Override
-    public int getType() {
-        return getInt("type",-1);
-    }
-
-    @Override
     public Boolean notNeedProducts() {
         return getBoolean("notNeedProducts",false);
     }
@@ -106,6 +101,11 @@ public class PreferencesDatasource implements ApiDatasource{
     @Override
     public int getPayment() {
         return getInt("payment",-1);
+    }
+
+    @Override
+    public String getComments() {
+        return getString("comments","");
     }
 
     @Override
@@ -149,12 +149,6 @@ public class PreferencesDatasource implements ApiDatasource{
     }
 
     @Override
-    public void setType(int type) {
-
-        setInt("type",type);
-    }
-
-    @Override
     public void setNotNeedProducts(boolean set) {
         setBoolean("notNeedProducts",set);
     }
@@ -169,5 +163,10 @@ public class PreferencesDatasource implements ApiDatasource{
     public void setPayment(int payment) {
 
         setInt("payment",payment);
+    }
+
+    @Override
+    public void setComments(String comments) {
+        setString("comments",comments);
     }
 }

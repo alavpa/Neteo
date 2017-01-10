@@ -7,4 +7,8 @@ public interface Step2View {
 
     int getServiceSelected();
     void selectService(int service);
+    boolean getNotCleaningProducts();
+    void setNotCleaningProducts(boolean notneed);
+    void setList(boolean notCleaning);
+
 }

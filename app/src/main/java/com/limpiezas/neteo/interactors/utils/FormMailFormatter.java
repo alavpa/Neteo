@@ -85,13 +85,7 @@ public class FormMailFormatter {
 
                     builder.append("Servicio: ");
                     builder.append("\n");
-                    builder.append(App.get().getResources().getStringArray(R.array.clean_service_type)[form.getService()]);
-                    builder.append("\n");
-                    builder.append("\n");
-
-                    builder.append("Tipo: ");
-                    builder.append("\n");
-                    builder.append(App.get().getResources().getStringArray(R.array.clean_type)[form.getType()]);
+                    builder.append(App.get().getResources().getStringArray(R.array.servicios)[form.getService()]);
                     builder.append("\n");
                     builder.append("\n");
 
@@ -108,6 +102,12 @@ public class FormMailFormatter {
                     builder.append("Fecha: ");
                     builder.append("\n");
                     builder.append(df.format(form.getDate()));
+                    builder.append("\n");
+                    builder.append("\n");
+
+                    builder.append("Comentarios: ");
+                    builder.append("\n");
+                    builder.append(form.getComments());
                     builder.append("\n");
                     builder.append("\n");
 

@@ -10,56 +10,68 @@
         android:layout_weight="1"
         android:layout_marginBottom="@dimen/activity_vertical_margin"></WebView>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/activity_vertical_margin">
 
-        <TextView android:id="@+id/tv_phone"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/conocenos_tel"
-            android:drawableLeft="@drawable/ic_android_call"
-            android:drawablePadding="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:gravity="center_vertical"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView android:id="@+id/tv_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/conocenos_email"
-            android:drawablePadding="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:gravity="center_vertical"
-            android:drawableLeft="@drawable/ic_android_mail"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"/>
+            <TextView android:id="@+id/tv_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/conocenos_tel"
+                android:drawableLeft="@drawable/ic_android_call"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"/>
 
-        <TextView android:id="@+id/tv_facebook"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/conocenos_facebook"
-            android:drawablePadding="@dimen/activity_vertical_margin"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:gravity="center_vertical"
-            android:drawableLeft="@drawable/ic_social_facebook"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"/>
+            <TextView android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/conocenos_email"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_android_mail"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"/>
 
-        <TextView android:id="@+id/tv_twitter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/conocenos_twitter"
-            android:drawablePadding="@dimen/activity_vertical_margin"
-            android:gravity="center_vertical"
-            android:drawableLeft="@drawable/ic_social_twitter"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"/>
+            <TextView android:id="@+id/tv_facebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/conocenos_facebook"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_social_facebook"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"/>
 
-    </LinearLayout>
+            <TextView android:id="@+id/tv_twitter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/conocenos_twitter"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_social_twitter"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"/>
+
+            <TextView android:id="@+id/tv_web"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/conocenos_web"
+                android:drawablePadding="@dimen/activity_vertical_margin"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_social_public"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
