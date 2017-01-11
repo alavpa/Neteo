@@ -53,6 +53,7 @@ public class SendForm {
                             return Observable.empty();
 
                         } catch (Throwable t) {
+                            t.printStackTrace();
                             return Observable.error(new SendEmailException());
                         }
 
